@@ -1,0 +1,60 @@
+group:
+  beds:
+    name: Beds
+    entities:
+      - binary_sensor.jeff_bed_sensor
+      - binary_sensor.sara_bed_sensor
+
+binary_sensor:
+  - platform: template
+    sensors:
+      jeff_bed_sensor:
+        friendly_name: "Jeff is in Bed"
+        unique_id: 94a9a7ef-c009-4e89-b856-2f1e2b1cf4fe
+        device_class: occupancy
+        icon_template: >
+          {% if is_state('binary_sensor.jeff_bed_sensor','on') %} mdi:bed
+          {% else %} mdi:bed-empty
+          {% endif %}
+        value_template: >
+          {% set data_source = states('binary_sensor.withings_in_bed_jeff') %}
+          {% if data_source in ['unavailable', 'unknown'] %} 
+            {{states('binary_sensor.jeff_bed_value_store')}}
+          {% else %}
+            {{data_source}}
+          {% endif %}
+      jeff_bed_value_store:
+        friendly_name: "jeff bed sensor value store"
+        unique_id: e65b286b-7822-48de-8296-be44a0eef9bf
+        device_class: occupancy
+        icon_template: >
+          {% if is_state('binary_sensor.jeff_bed_value_store','on') %} mdi:bed
+          {% else %} mdi:bed-empty
+          {% endif %}
+        value_template: >
+          {{states('binary_sensor.jeff_bed_sensor')}}
+      sara_bed_sensor:
+        friendly_name: "Sara is in Bed"
+        unique_id: cf702789-f781-4edf-910d-e5aa819723ee
+        device_class: occupancy
+        icon_template: >
+          {% if is_state('binary_sensor.sara_bed_sensor','on') %} mdi:bed
+          {% else %} mdi:bed-empty
+          {% endif %}
+        value_template: >-
+          {% set data_source = states('binary_sensor.withings_in_bed_sara') %}
+          {% if data_source in ['unavailable', 'unknown'] %} 
+            {{states('binary_sensor.sara_bed_value_store')}}
+          {% else %}
+            {{data_source}}
+          {% endif %}
+      sara_bed_value_store:
+        friendly_name: "sara bed sensor value store"
+        unique_id: 5961f92f-75b0-4bff-97d3-c563ffc30313
+        device_class: occupancy
+        icon_template: >
+          {% if is_state('binary_sensor.sara_bed_value_store','on') %} mdi:bed
+          {% else %} mdi:bed-empty
+          {% endif %}
+        value_template: >
+          {{states('binary_sensor.sara_bed_sensor')}}

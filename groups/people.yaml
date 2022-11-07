@@ -1,0 +1,16 @@
+family:
+  name: Family
+  icon: mdi:account-group
+  entities:
+    - person.jeff
+    - person.sara
+
+pets:
+  name: Pets
+  icon: mdi:paw
+  entities:
+    - person.daisy
+
+arriving:
+  name: Arriving
+  entities: []

@@ -1,0 +1,43 @@
+light:
+  - platform: group
+    name: Interior Lights
+    unique_id: 2cd18f95-f3dd-4243-ae0a-598afc437a5c
+    entities:
+      - light.front_foyer_chandelier
+      - light.game_room_main_lights
+      - light.garage_main_lights
+      - light.guest_bedroom_main_lights
+      - light.jeff_s_office_main_lights
+      - light.kitchen_island_pendants
+      - light.kitchen_main_lights
+      - light.kitchen_under_cabinet
+      - light.living_room_main_lights
+      - light.master_bedroom_main_lights
+      - light.sara_s_office_main_lights
+      - light.upstairs_hallway_main_lights
+  - platform: group
+    name: Front Exterior Lights
+    unique_id: 556661fe-04ab-4c4e-b7b3-2ff93a306f55
+    entities:
+      - light.front_porch_main_lights
+      - light.front_porch_door_lights
+  - platform: group
+    name: Back Exterior Lights
+    unique_id: a44bb8f2-fea2-4a61-bba1-d9c7a38985b3
+    entities:
+      - light.back_porch_main_lights
+      - light.backyard_floodlights
+      - light.pool_lights
+  - platform: group
+    name: Exterior Lights
+    unique_id: 6de36a80-3994-4dbc-97bd-473774eb13f7
+    entities:
+      - light.front_exterior_lights
+      - light.back_exterior_lights
+  - platform: group
+    name: Kitchen Lights
+    unique_id: 253276d0-7733-45e0-a452-f3f713d42687
+    entities:
+      - light.kitchen_island_pendants
+      - light.kitchen_main_lights
+      - light.kitchen_under_cabinet

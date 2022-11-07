@@ -1,0 +1,7 @@
+notify:
+  - platform: group
+    name: "Family Phones"
+    unique_id: 2a4f3147-dc01-4aa9-85cf-8eca41d3847c
+    services:
+      - service: mobile_app_jeffs_pixel_5
+      - service: mobile_app_saras_pixel_6a

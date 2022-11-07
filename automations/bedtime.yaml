@@ -1,0 +1,106 @@
+- alias: 'Good Night Trigger'
+  id: 26846f7b-bc76-43d2-99be-af552da7700f
+  trigger:
+    - platform: state
+      entity_id: input_boolean.good_night
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id:
+        - binary_sensor.jeff_bed_sensor
+        - binary_sensor.sara_bed_sensor
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: 'off'
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.jeff_bed_sensor
+          state: 'on'
+        - condition: state
+          entity_id: person.jeff
+          state: 'not_home'
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.sara_bed_sensor
+          state: 'on'
+        - condition: state
+          entity_id: person.sara
+          state: 'not_home'
+  action:
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.interior_lights
+          - light.exterior_lights
+    - service: fan.set_percentage
+      data:
+        percentage: 50
+      target:
+        area_id: master_bedroom
+    - type: turn_on
+      device_id: 8b0a357ab8ff749e20d265d3b1aab4ee
+      entity_id: fan.master_bedroom_ceiling_fan
+      domain: fan
+    - device_id: 012bab4c083050f9d4f146d73fe64b65
+      domain: lock
+      entity_id: lock.front_door
+      type: lock
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.master_bedroom_speaker
+        volume_level: '0.10'
+    - service: media_player.play_media
+      data:
+        media_content_id: https://www.gstatic.com/voice_delight/sounds/long/ocean.mp3
+        media_content_type: audio/mp3
+      target:
+        entity_id: media_player.master_bedroom_speaker
+
+- alias: Stop Sleep Noises After 1 Hour
+  id: 21a846e6-d5a9-48dd-ae2f-1df457c76580
+  mode: single
+  trigger:
+    - platform: device
+      device_id: 9239423e32c943787786e673ff2d3dfb
+      domain: media_player
+      entity_id: media_player.master_bedroom_speaker
+      type: playing
+      for:
+        hours: 1
+        minutes: 0
+        seconds: 0
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: 'off'
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.jeff_bed_sensor
+          state: 'on'
+        - condition: state
+          entity_id: person.jeff
+          state: 'not_home'
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.sara_bed_sensor
+          state: 'on'
+        - condition: state
+          entity_id: person.sara
+          state: 'not_home'
+  action:
+    - service: media_player.media_stop
+      data: {}
+      target:
+        entity_id: media_player.master_bedroom_speaker

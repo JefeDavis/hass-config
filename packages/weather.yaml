@@ -1,0 +1,22 @@
+weather:
+  - platform: pirateweather
+    api_key: !secret pirate_weather_apikey
+    # Additional optional values:
+    latitude: !secret latitude
+    longitude: !secret longitude
+    mode: hourly
+
+# you can also get a sensor data
+sensor:
+  - platform: pirateweather
+    api_key: !secret pirate_weather_apikey
+    scan_interval: '00:15:00'
+    monitored_conditions:
+      - temperature
+      - precip_probability
+      - precip_type
+      - humidity
+      - cloud_cover
+      - nearest_storm_distance
+      - precip_intensity
+      - wind_speed

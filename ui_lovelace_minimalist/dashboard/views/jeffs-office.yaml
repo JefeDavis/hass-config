@@ -1,0 +1,23 @@
+- title: Jeff's Office
+  path: jeffs-office
+  cards:
+    - type: "custom:button-card"
+      template: chip_back
+      variables:
+        ulm_chip_back_path: home
+    - type: grid
+      columns: 2
+      squares: false
+      cards:
+        - type: "custom:button-card"
+          template: card_light
+          entity: light.jeffs_office_main_lights
+          variables:
+            ulm_card_light_force_background_color: true
+        - type: custom:button-card
+          template: custom_card_saxel_fan
+          entity: fan.jeff_s_office_ceiling_fan
+          name: Fan
+          variables:
+            collapsible: false
+            oscillate_attribute: ""

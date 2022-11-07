@@ -1,0 +1,39 @@
+homeassistant:
+  customize:
+    input_boolean.lastmsg:
+      friendly_name: 'Repeat Message'
+      icon: mdi:repeat-once
+
+      
+#-------------------------------------------
+input_boolean:
+  lastmsg:
+    name: Last Message
+    initial: off
+#-------------------------------------------
+mqtt:
+  sensor:
+    - state_topic: "google_say/lastmsg"
+      name: "Last Message"
+      icon: mdi:chart-bubble
+##############################################################################
+###  Automations -
+##############################################################################
+
+automation:
+  - alias: 'Repeat Last Message'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.lastmsg
+        to: 'on'
+    action:
+      - service: tts.google_say
+        entity_id:
+          - media_player.master_bed
+        data:
+          message: "{{ states.sensor.last_message.state }}"
+          cache: true
+
+      - service: input_boolean.turn_off
+        entity_id:
+          - input_boolean.lastmsg
