@@ -1,0 +1,30 @@
+script:
+  find_my_phone:
+    sequence:
+      - service: >
+          {% if who == 'jeff' %}
+            notify.mobile_app_jeffs_pixel_5
+          {% elif who == 'sara' %}
+            notify.mobile_app_saras_pixel_6a
+          {% elif who == 'family' %}
+            notify.family_phones
+          {% else %}
+            notify.family_phones
+          {% endif %}
+        data:
+          title: "Finding Your Phone!"
+          message: "Home Assistant is looking for your phone!"
+          data:
+            ttl: 0
+            priority: high
+            channel: alarm_stream
+  jeff_find_my_phone:
+    sequence:
+      - service: script.find_my_phone
+        data:
+          who: jeff
+  sara_find_my_phone:
+    sequence:
+      - service: script.find_my_phone
+        data:
+          who: sara

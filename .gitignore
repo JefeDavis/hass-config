@@ -11,3 +11,4 @@ tts/
 .HA_VERSION
 .vscode/
 !.vscode/settings.json
+www/community/

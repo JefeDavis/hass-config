@@ -7,17 +7,60 @@
         ulm_chip_back_path: home
     - type: grid
       columns: 2
-      squares: false
+      square: false
       cards:
-        - type: "custom:button-card"
-          template: card_light
+        - type: custom:mushroom-light-card
           entity: light.jeffs_office_main_lights
-          variables:
-            ulm_card_light_force_background_color: true
-        - type: custom:button-card
-          template: custom_card_saxel_fan
+          name: Main Lights
+          fill_container: true
+        - type: custom:mushroom-fan-card
           entity: fan.jeff_s_office_ceiling_fan
-          name: Fan
+          name: Ceiling Fan
+          icon_animation: true
+          show_percentage_control: true
+          show_oscillate_control: false
+          secondary_info: none
+          collapsible_controls: false
+    - type: grid
+      columns: 1
+      square: false
+      cards:
+        - type: custom:mini-media-player
+          entity: media_player.mass_jeff_s_office
+          name: Office Speakers
+          hide:
+            power: true
+            icon: true
+            source: true
+          speaker_group:
+            platform: sonos
+            show_group_count: true
+            entities:
+              - entity_id: media_player.mass_living_room
+                name: Living Room
+              - entity_id: media_player.mass_backyard
+                name: Backyard
+              - entity_id: media_player.mass_kitchen
+                name: Jeff's Office
+              - entity_id: media_player.mass_master_bathroom
+                name: Master Bathroom
+              - entity_id: media_player.mass_game_room
+                name: Game Room
+          info: scroll
+    - type: grid
+      columns: 1
+      square: false
+      cards:
+        - type: custom:button-card
+          template: card_graph
+          entity: sensor.upstairs_temperature
           variables:
-            collapsible: false
-            oscillate_attribute: ""
+            ulm_card_graph_color: "var(--google-blue)"
+            ulm_card_graph_name: Temperature
+            ulm_card_graph_entity: sensor.upstairs_temperature
+            ulm_card_graph_type: fill
+            ulm_card_graph_hours: 24
+            ulm_card_graph_group_by: interval
+        - type: thermostat
+          entity: climate.upstairs
+          name: Thermostat

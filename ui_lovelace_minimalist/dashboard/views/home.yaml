@@ -37,21 +37,33 @@
       square: false
       cards:
         - type: 'custom:button-card'
-          template: card_person
+          template: 
+            - card_person
+            - "custom_popup_imswel_person"
           entity: person.jeff
           variables:
             ulm_card_person_entity: person.jeff
             ulm_card_person_use_entity_picture: true
             ulm_card_person_icon: mdi:face-man
             ulm_card_person_battery: sensor.jeffs_pixel_5_battery_level
+            ulm_card_imswel_person_entity: person.jeff
+            ulm_card_imswel_person_findmy_script: script.jeff_find_my_phone
+            ulm_card_imswel_person_wifi_tracker: device_tracker.jsdyb_pixel5_jeff
+            ulm_card_imswel_person_gps_tracker: device_tracker.jeffs_pixel_5
         - type: 'custom:button-card'
-          template: card_person
+          template: 
+            - card_person
+            - "custom_popup_imswel_person"
           entity: person.sara
           variables:
             ulm_card_person_entity: person.sara
             ulm_card_person_use_entity_picture: true
             ulm_card_person_icon: mdi:face-woman
             ulm_card_person_battery: sensor.saras_pixel_6a_battery_level
+            ulm_card_imswel_person_entity: person.sara
+            ulm_card_imswel_person_findmy_script: script.sara_find_my_phone
+            ulm_card_imswel_person_wifi_tracker: device_tracker.jsdyb_pixel6a_sara
+            ulm_card_imswel_person_gps_tracker: device_tracker.saras_pixel_6a
     - type: grid
       columns: 2
       square: false
