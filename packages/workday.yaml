@@ -1,0 +1,11 @@
+
+binary_sensor:
+  - platform: workday
+    name: workday_jeff
+    country: US
+    province: SC
+
+  - platform: workday
+    name: workday_sara
+    country: US
+    province: SC

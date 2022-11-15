@@ -1,0 +1,41 @@
+homeassistant:
+  customize_glob:
+    "binary_sensor:*_presence":
+      device_class: occupancy
+
+binary_sensor:
+  - platform: group
+    unique_id: 7d708d4d-e274-4343-b861-ad282b15234b
+    name: "Jeff's Office Occupancy"
+    device_class: occupancy
+    entities:
+      - binary_sensor.jeff_s_office_motion_sensor_occupancy
+      - binary_sensor.jeff_s_office_presence_sensor_presence
+
+
+automation:
+  - alias: "Jeff's Office is Occupied"
+    id: aff2f020-5d42-4799-980d-3de1d6eaa855
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.jeff_s_office_occupancy
+        from: 'off'
+        to: 'on'
+    action:
+      - service: homeassistant.turn_on
+        target:
+          entity_id:
+            - light.jeff_s_office_lamp
+
+  - alias: "Jeff's Office is not Occupied"
+    id: 144b89ee-361c-41a2-b215-618e481bc8b5
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.jeff_s_office_occupancy
+        from: 'on'
+        to: 'off'
+    action:
+      - service: homeassistant.turn_off
+        target:
+          entity_id:
+            - light.jeff_s_office_lamp

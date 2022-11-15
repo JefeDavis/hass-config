@@ -1,3 +1,8 @@
+homeassistant:
+  customize_glob: 
+    "binary_sensor.*_window_contact":
+      device_class: window
+
 binary_sensor:
   - platform: group
     name: "Entry Points"
@@ -7,6 +12,9 @@ binary_sensor:
       - binary_sensor.front_door_contact
       - binary_sensor.sliding_door_contact
       - binary_sensor.garage_access_door_contact
+      - binary_sensor.garage_door_contact
+      - binary_sensor.garage_left_window_contact
+      - binary_sensor.garage_right_window_contact
       - binary_sensor.kitchen_left_window_contact
       - binary_sensor.kitchen_right_window_contact
       - binary_sensor.dining_room_left_window_contact
@@ -14,7 +22,7 @@ binary_sensor:
       - binary_sensor.living_room_left_window_contact
       - binary_sensor.dining_room_right_window_contact
       - binary_sensor.guest_bedroom_left_window_contact
-      - binary_sensor.guest_bedroom_right_window_contact  
+      - binary_sensor.guest_bedroom_right_window_contact
 
 lock:
   - platform: group
@@ -33,6 +41,9 @@ automation:
         - binary_sensor.front_door_contact
         - binary_sensor.sliding_door_contact
         - binary_sensor.garage_access_door_contact
+        - binary_sensor.garage_door_contact
+        - binary_sensor.garage_left_window_contact
+        - binary_sensor.garage_right_window_contact
         - binary_sensor.dining_room_left_window_contact
         - binary_sensor.dining_room_right_window_contact
         - binary_sensor.living_room_left_window_contact
@@ -41,6 +52,7 @@ automation:
         - binary_sensor.guest_bedroom_right_window_contact
         - binary_sensor.kitchen_left_window_contact
         - binary_sensor.kitchen_right_window_contact
+
       from: 'off'
       to: 'on'
     action:

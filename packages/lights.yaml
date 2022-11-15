@@ -1,20 +1,41 @@
 light:
+  - platform: switch
+    name: Kitchen Under Cabinet
+    entity_id: switch.kitchen_under_cabinet
+  - platform: switch
+    name: Backyard Floodlights
+    entity_id: switch.backyard_floodlights
+  - platform: switch
+    name: Exterior Landscape Lights
+    entity_id: switch.exterior_landscape_lights
+  - platform: switch
+    name: Front Foyer Chandelier
+    entity_id: switch.front_foyer_chandelier
+  - platform: switch
+    name: Front Porch Door Lights
+    entity_id: switch.front_porch_door_lights
+  - platform: switch
+    name: Garage Main Lights
+    entity_id: switch.garage_main_lights
+  - platform: switch
+    name: Guest Bedroom Main Lights
+    entity_id: switch.guest_bedroom_main_lights
+  - platform: switch
+    name: Jeff's Office Main Lights
+    entity_id: switch.jeff_s_office_main_lights
+  - platform: switch
+    name: Sara's Office Main Lights
+    entity_id: switch.sara_s_office_main_lights
+  - platform: switch
+    name: Upstairs Hallway Main Lights
+    entity_id: switch.upstairs_hallway_main_lights
+
   - platform: group
     name: Interior Lights
     unique_id: 2cd18f95-f3dd-4243-ae0a-598afc437a5c
     entities:
-      - light.front_foyer_chandelier
-      - light.game_room_main_lights
-      - light.garage_main_lights
-      - light.guest_bedroom_main_lights
-      - light.jeff_s_office_main_lights
-      - light.kitchen_island_pendants
-      - light.kitchen_main_lights
-      - light.kitchen_under_cabinet
-      - light.living_room_main_lights
-      - light.master_bedroom_main_lights
-      - light.sara_s_office_main_lights
-      - light.upstairs_hallway_main_lights
+      - light.upstairs_lights
+      - light.downstairs_lights
   - platform: group
     name: Upstairs Lights
     unique_id: 5ac09b55-febe-4c9f-93b3-8d7205270b97
@@ -28,12 +49,11 @@ light:
     name: Downstairs Lights
     unique_id: 0430b6cc-539f-4023-bca9-c0ce8782b8d2
     entities:
+      - light.dining_room_chandelier
       - light.front_foyer_chandelier
       - light.garage_main_lights
       - light.guest_bedroom_main_lights
-      - light.kitchen_island_pendants
-      - light.kitchen_main_lights
-      - light.kitchen_under_cabinet
+      - light.kitchen_lights
       - light.living_room_main_lights
   - platform: group
     name: Front Exterior Lights
@@ -41,6 +61,7 @@ light:
     entities:
       - light.front_porch_main_lights
       - light.front_porch_door_lights
+      - light.exterior_landscape_lights
   - platform: group
     name: Back Exterior Lights
     unique_id: a44bb8f2-fea2-4a61-bba1-d9c7a38985b3
@@ -61,3 +82,8 @@ light:
       - light.kitchen_island_pendants
       - light.kitchen_main_lights
       - light.kitchen_under_cabinet
+  - platform: group
+    name: Jeff's Office Lamp
+    entities:
+      - light.jeff_s_office_lamp_top
+      - light.jeff_s_office_lamp_bottom

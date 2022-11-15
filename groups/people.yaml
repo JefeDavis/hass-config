@@ -10,7 +10,3 @@ pets:
   icon: mdi:paw
   entities:
     - person.daisy
-
-arriving:
-  name: Arriving
-  entities: []

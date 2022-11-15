@@ -10,7 +10,7 @@
       square: false
       cards:
         - type: custom:mushroom-light-card
-          entity: light.saras_office_main_lights
+          entity: light.sara_s_office_main_lights
           name: Main Lights
           fill_container: true
         - type: custom:mushroom-fan-card
@@ -26,6 +26,14 @@
               :host {
                 --rgb-state-fan: var(--mush-rgb-state-fan, var(--rgb-blue-color));
               }
+    - type: custom:mushroom-light-card
+      entity: light.sara_s_office_lamp
+      name: Lamp
+      show_brightness_control: true
+      show_color_temp_control: true
+      show_color_control: true
+      collapsible_controls: false
+      use_light_color: true
     - type: grid
       columns: 2
       square: false

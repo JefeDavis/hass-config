@@ -1,0 +1,26 @@
+automation:
+  - alias: 'Sunset Stuff on'
+    id: d0db568c-0aa2-42cc-b5be-ba546e39b639
+    mode: queued
+    trigger:
+      - platform: sun
+        event: sunset
+        offset: "-00:15:00"
+    action:
+      - delay: '00:{{ (range(1, 20)|random|int) }}:00'
+      - service: script.speech_engine
+        data:
+          call_dark_outside: 1
+          call_entry_point_check: 1
+      - service: homeassistant.turn_on
+        entity_id:
+          - light.exterior_landscape_lights
+          - light.front_porch_door_lights
+          - switch.living_room_outlet
+      - wait_template: >-
+          {{ states.group.family.state == 'home' }}
+      - service: light.turn_on
+        entity_id:
+          - light.living_room_main_lights
+        data:
+          brightness: 25

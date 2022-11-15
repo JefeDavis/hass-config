@@ -1,0 +1,18 @@
+
+######################################################################
+##  Stuff that needs to happen at 10pm.
+######################################################################
+automation:
+  - alias: '2200 routine'
+    id: 3b41321c-8242-4cf5-9a93-b2b7aeeb8ea0
+    trigger:
+      - platform: time
+        at: '22:00:00'
+    action:
+      - wait_template: >-
+          {{ not is_state('media_player.living_room_tv', 'playing') }}
+      - service: script.speech_engine
+        data:
+          call_no_announcement: 1
+          call_responsibilities: 1
+          call_entry_point_check: 1

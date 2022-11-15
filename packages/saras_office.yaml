@@ -1,0 +1,36 @@
+binary_sensor:
+  - platform: group
+    unique_id: b57b34ab-0649-4fa9-b150-3d5d1b8eab35
+    name: "Sara's Office Occupancy"
+    device_class: occupancy
+    entities:
+      - binary_sensor.sara_s_office_motion_sensor_occupancy
+      - binary_sensor.sara_s_office_presence_sensor_presence
+
+
+automation:
+  - alias: "Sara's Office is Occupied"
+    id: e88c73a9-1dde-4513-b688-03904fda1172
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.sara_s_office_occupancy
+        from: 'off'
+        to: 'on'
+    action:
+      - service: homeassistant.turn_on
+        target:
+          entity_id:
+            - light.sara_s_office_lamp
+
+  - alias: "Sara's Office is not Occupied"
+    id: 94e98a23-4877-48fa-9e49-12d9e56e1331
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.sara_s_office_occupancy
+        from: 'on'
+        to: 'off'
+    action:
+      - service: homeassistant.turn_off
+        target:
+          entity_id:
+            - light.sara_s_office_lamp

@@ -1,0 +1,29 @@
+###################################
+##  Sunrise and Sunset stuff
+###################################
+
+automation:
+    - alias: 'Sunrise Stuff off'
+      id: 232b95e8-1354-4f63-8ae4-1063f300f2f0
+      mode: single
+      trigger:
+        - platform: sun
+          event: sunrise
+          offset: '-02:00:00'
+
+      action:
+        - delay: '00:{{ range(0,5) | random | int }}{{ range(0,9) | random | int }}:00'
+        - service: homeassistant.turn_off
+          entity_id:
+            - light.exterior_lights
+            - light.pool_lights
+            - switch.living_room_outlet
+
+        - wait_template: >-
+            {{ states.sun.sun.state == 'above_horizon' }}
+        - service: homeassistant.turn_off
+          entity_id:
+            - light.interior_lights
+
+        - service: homeassistant.update_entity  #Look for a new Home Assistant Version
+          entity_id: binary_sensor.updater

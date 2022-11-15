@@ -3,7 +3,7 @@ script:
     sequence:
       - service: >
           {% if who == 'jeff' %}
-            notify.mobile_app_jeffs_pixel_5
+            notify.mobile_app_jeffs_pixel_7
           {% elif who == 'sara' %}
             notify.mobile_app_saras_pixel_6a
           {% elif who == 'family' %}

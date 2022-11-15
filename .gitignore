@@ -13,3 +13,4 @@ tts/
 !.vscode/settings.json
 www/community/
 nest/
+*august.conf

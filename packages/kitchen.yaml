@@ -1,0 +1,65 @@
+automation:
+  - id: 1c1b004d-7012-47cb-b9f9-3e81776ba688
+    alias: "Audio Remote"
+    description: "audio remote"
+    mode: single
+    trigger:
+      - platform: device
+        device_id: b01967475e30aff8799408f6eebb66d9
+        domain: lutron_caseta
+        type: press
+        subtype: "on"
+        id: play
+      - platform: device
+        device_id: b01967475e30aff8799408f6eebb66d9
+        domain: lutron_caseta
+        type: press
+        subtype: "off"
+        id: next
+      - platform: device
+        device_id: b01967475e30aff8799408f6eebb66d9
+        domain: lutron_caseta
+        type: press
+        subtype: "raise"
+        id: volume_up
+      - platform: device
+        device_id: b01967475e30aff8799408f6eebb66d9
+        domain: lutron_caseta
+        type: press
+        subtype: "lower"
+        id: volume_down
+    condition: []
+    action:
+      - choose:
+          - conditions:
+              - condition: trigger
+                id: play
+            sequence:
+              - service: media_player.media_play_pause
+                data: {}
+                target:
+                  entity_id: media_player.kitchen
+          - conditions:
+              - condition: trigger
+                id: next
+            sequence:
+              - service: media_player.media_next_track
+                data: {}
+                target:
+                  entity_id: media_player.kitchen
+          - conditions:
+              - condition: trigger
+                id: volume_up
+            sequence:
+              - service: media_player.volume_up
+                data: {}
+                target:
+                  entity_id: media_player.kitchen
+          - conditions:
+              - condition: trigger
+                id: volume_down
+            sequence:
+              - service: media_player.volume_down
+                data: {}
+                target:
+                  entity_id: media_player.kitchen
