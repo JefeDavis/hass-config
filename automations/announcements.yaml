@@ -15,7 +15,7 @@
         object_id: "arriving"
         add_entities: >-
           {{ trigger.to_state.entity_id }}
-    - wait_template: "{{ states.binary_sensor.lumi_lumi_sensor_magnet_aq2_front_door.state == 'on' }}"
+    - wait_template: "{{ states.binary_sensor.front_door_contact.state == 'on' }}"
       timeout: '00:1:00'
     - delay: '00:00:30'
     - service: script.speech_engine

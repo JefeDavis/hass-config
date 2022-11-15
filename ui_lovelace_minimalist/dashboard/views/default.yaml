@@ -142,7 +142,7 @@
           icon: mdi:television
           tap_action:
             action: navigate
-            navigation_path: "game-bedroom"
+            navigation_path: "game-room"
           variables:
             ulm_custom_card_esh_room_light_entity: light.game_room_main_lights
             ulm_card_light_enable_popup: true

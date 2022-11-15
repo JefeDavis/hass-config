@@ -1,5 +1,5 @@
-- title: Living Room
-  path: living-room
+- title: Kitchen
+  path: kitchen
   cards:
     - type: horizontal-stack
       cards:
@@ -10,21 +10,21 @@
         - type: custom:mushroom-chips-card
           chips:
             - type: entity
-              entity: binary_sensor.living_room_left_window_contact
+              entity: binary_sensor.kitchen_left_window_contact
               content_info: name
               name: Left Window
               icon_color: |
-                {% if states("binary_sensor.living_room_left_window_contact").state == "on" %}
+                {% if states("binary_sensor.kitchen_left_window_contact").state == "on" %}
                   red
                 {% else %}
                   white
                 {% endif %}
             - type: entity
-              entity: binary_sensor.living_room_right_window_contact
+              entity: binary_sensor.kitchen_right_window_contact
               content_info: name
               name: Right Window
               icon_color: |
-                {% if states("binary_sensor.living_room_right_window_contact").state == "on" %}
+                {% if states("binary_sensor.kitchen_right_window_contact").state == "on" %}
                   red
                 {% else %}
                   white
@@ -35,30 +35,26 @@
       square: false
       cards:
         - type: custom:mushroom-light-card
-          entity: light.living_room_main_lights
+          entity: light.kitchen_main_lights
           name: Main Lights
+          show_brightness_control: true
+          fill_container: true
+        - type: custom:mushroom-light-card
+          entity: light.kitchen_island_pendants
+          name: Island
           fill_container: true
           show_brightness_control: true
-        - type: custom:mushroom-fan-card
-          entity: fan.living_room_ceiling_fan
-          name: Ceiling Fan
-          icon_animation: true
-          show_percentage_control: true
-          show_oscillate_control: false
-          secondary_info: none
-          collapsible_controls: false
-          card_mod:
-            style: |
-              :host {
-                --rgb-state-fan: var(--mush-rgb-state-fan, var(--rgb-blue-color));
-              }
+        - type: custom:mushroom-light-card
+          entity: light.kitchen_under_cabinet
+          name: Under Cabinets
+          fill_container: true
     - type: grid
       columns: 1
       square: false
       cards:
         - type: custom:mini-media-player
-          entity: media_player.mass_living_room
-          name: Living Room Speakers
+          entity: media_player.mass_kitchen
+          name: Kitchen Speakers
           hide:
             power: true
             icon: true
@@ -67,8 +63,8 @@
             platform: sonos
             show_group_count: true
             entities:
-              - entity_id: media_player.kitchen
-                name: Kitchen
+              - entity_id: media_player.living_room
+                name: Living Room
               - entity_id: media_player.backyard
                 name: Backyard
               - entity_id: media_player.jeff_s_office
@@ -106,8 +102,10 @@
       template: card_thermostat
       entity: climate.living_room
       variables:
-        ulm_card_thermostat_name: Thermostat
-        ulm_card_thermostat_enable_collapse: true
+        ulm_card_thermostat_enable_collapse: false
         ulm_card_thermostat_enable_controls: true
-        ulm_card_thermostat_enable_hvac_modes: true
+        ulm_card_thermostat_enable_hvac_modes: false
+        ulm_card_thermostat_enable_background_color: false
+        ulm_card_thermostat_enable_display_temperature: true
         ulm_card_thermostat_enable_popup: true
+      

@@ -16,6 +16,26 @@ light:
       - light.sara_s_office_main_lights
       - light.upstairs_hallway_main_lights
   - platform: group
+    name: Upstairs Lights
+    unique_id: 5ac09b55-febe-4c9f-93b3-8d7205270b97
+    entities:
+      - light.game_room_main_lights
+      - light.jeff_s_office_main_lights
+      - light.master_bedroom_main_lights
+      - light.sara_s_office_main_lights
+      - light.upstairs_hallway_main_lights
+  - platform: group
+    name: Downstairs Lights
+    unique_id: 0430b6cc-539f-4023-bca9-c0ce8782b8d2
+    entities:
+      - light.front_foyer_chandelier
+      - light.garage_main_lights
+      - light.guest_bedroom_main_lights
+      - light.kitchen_island_pendants
+      - light.kitchen_main_lights
+      - light.kitchen_under_cabinet
+      - light.living_room_main_lights
+  - platform: group
     name: Front Exterior Lights
     unique_id: 556661fe-04ab-4c4e-b7b3-2ff93a306f55
     entities:

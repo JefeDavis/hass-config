@@ -1,5 +1,5 @@
-- title: Jeff's Office
-  path: jeffs-office
+- title: Master Bedroom
+  path: master-bedroom
   cards:
     - type: "custom:button-card"
       template: chip_back
@@ -10,11 +10,11 @@
       square: false
       cards:
         - type: custom:mushroom-light-card
-          entity: light.jeffs_office_main_lights
+          entity: light.master_bedroom_main_lights
           name: Main Lights
           fill_container: true
         - type: custom:mushroom-fan-card
-          entity: fan.jeff_s_office_ceiling_fan
+          entity: fan.master_bedroom_ceiling_fan
           name: Ceiling Fan
           icon_animation: true
           show_percentage_control: true
@@ -26,32 +26,12 @@
               :host {
                 --rgb-state-fan: var(--mush-rgb-state-fan, var(--rgb-blue-color));
               }
-    - type: grid
-      columns: 1
-      square: false
-      cards:
-        - type: custom:mini-media-player
-          entity: media_player.mass_jeff_s_office
-          name: Office Speakers
-          hide:
-            power: true
-            icon: true
-            source: true
-          speaker_group:
-            platform: sonos
-            show_group_count: true
-            entities:
-              - entity_id: media_player.mass_living_room
-                name: Living Room
-              - entity_id: media_player.mass_backyard
-                name: Backyard
-              - entity_id: media_player.mass_kitchen
-                name: Jeff's Office
-              - entity_id: media_player.mass_master_bathroom
-                name: Master Bathroom
-              - entity_id: media_player.mass_game_room
-                name: Game Room
-          info: scroll
+        - type: 'custom:button-card'
+          template: card_generic
+          entity: binary_sensor.jeff_bed_sensor
+        - type: 'custom:button-card'
+          template: card_generic
+          entity: binary_sensor.sara_bed_sensor
     - type: grid
       columns: 2
       square: false
@@ -76,6 +56,13 @@
             ulm_card_graph_type: fill
             ulm_card_graph_hours: 24
             ulm_card_graph_group_by: interval
-    - type: thermostat
+    - type: "custom:button-card"
+      template: card_thermostat
       entity: climate.upstairs
-      name: Thermostat
+      variables:
+        ulm_card_thermostat_name: Thermostat
+        ulm_card_thermostat_enable_collapse: true
+        ulm_card_thermostat_enable_controls: true
+        ulm_card_thermostat_enable_hvac_modes: false
+        ulm_card_thermostat_enable_background_color: true
+        ulm_card_thermostat_enable_popup: true

@@ -21,8 +21,13 @@
           show_oscillate_control: false
           secondary_info: none
           collapsible_controls: false
+          card_mod:
+            style: |
+              :host {
+                --rgb-state-fan: var(--mush-rgb-state-fan, var(--rgb-blue-color));
+              }
     - type: grid
-      columns: 1
+      columns: 2
       square: false
       cards:
         - type: custom:button-card
@@ -35,6 +40,16 @@
             ulm_card_graph_type: fill
             ulm_card_graph_hours: 24
             ulm_card_graph_group_by: interval
-        - type: thermostat
-          entity: climate.upstairs
-          name: Thermostat
+        - type: custom:button-card
+          template: card_graph
+          entity: sensor.upstairs_humidity
+          variables:
+            ulm_card_graph_color: "var(--google-red)"
+            ulm_card_graph_name: Humidity
+            ulm_card_graph_entity: sensor.upstairs_humidity
+            ulm_card_graph_type: fill
+            ulm_card_graph_hours: 24
+            ulm_card_graph_group_by: interval
+    - type: thermostat
+      entity: climate.upstairs
+      name: Thermostat

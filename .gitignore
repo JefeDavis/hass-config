@@ -12,3 +12,4 @@ tts/
 .vscode/
 !.vscode/settings.json
 www/community/
+nest/

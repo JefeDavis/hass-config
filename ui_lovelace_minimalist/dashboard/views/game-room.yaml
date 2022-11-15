@@ -1,5 +1,5 @@
-- title: Living Room
-  path: living-room
+- title: Game Room
+  path: game-room
   cards:
     - type: horizontal-stack
       cards:
@@ -7,40 +7,16 @@
           template: chip_back
           variables:
             ulm_chip_back_path: home
-        - type: custom:mushroom-chips-card
-          chips:
-            - type: entity
-              entity: binary_sensor.living_room_left_window_contact
-              content_info: name
-              name: Left Window
-              icon_color: |
-                {% if states("binary_sensor.living_room_left_window_contact").state == "on" %}
-                  red
-                {% else %}
-                  white
-                {% endif %}
-            - type: entity
-              entity: binary_sensor.living_room_right_window_contact
-              content_info: name
-              name: Right Window
-              icon_color: |
-                {% if states("binary_sensor.living_room_right_window_contact").state == "on" %}
-                  red
-                {% else %}
-                  white
-                {% endif %}
-          alignment: end
     - type: grid
       columns: 2
       square: false
       cards:
         - type: custom:mushroom-light-card
-          entity: light.living_room_main_lights
+          entity: light.game_room_main_lights
           name: Main Lights
           fill_container: true
-          show_brightness_control: true
         - type: custom:mushroom-fan-card
-          entity: fan.living_room_ceiling_fan
+          entity: fan.game_room_ceiling_fan
           name: Ceiling Fan
           icon_animation: true
           show_percentage_control: true
@@ -57,8 +33,8 @@
       square: false
       cards:
         - type: custom:mini-media-player
-          entity: media_player.mass_living_room
-          name: Living Room Speakers
+          entity: media_player.mass_game_room
+          name: Game Room Speakers
           hide:
             power: true
             icon: true
@@ -75,8 +51,8 @@
                 name: Jeff's Office
               - entity_id: media_player.master_bathroom
                 name: Master Bathroom
-              - entity_id: media_player.game_room
-                name: Game Room
+              - entity_id: media_player.living_room
+                name: Living Room
           info: scroll
     - type: grid
       columns: 2
@@ -84,30 +60,31 @@
       cards:
         - type: custom:button-card
           template: card_graph
-          entity: sensor.living_room_temperature
+          entity: sensor.game_room_temperature
           variables:
             ulm_card_graph_color: "var(--google-blue)"
             ulm_card_graph_name: Temperature
-            ulm_card_graph_entity: sensor.living_room_temperature
+            ulm_card_graph_entity: sensor.game_room_temperature
             ulm_card_graph_type: fill
             ulm_card_graph_hours: 24
             ulm_card_graph_group_by: interval
         - type: custom:button-card
           template: card_graph
-          entity: sensor.living_room_humidity
+          entity: sensor.game_room_humidity
           variables:
             ulm_card_graph_color: "var(--google-red)"
             ulm_card_graph_name: Humidity
-            ulm_card_graph_entity: sensor.living_room_humidity
+            ulm_card_graph_entity: sensor.game_room_humidity
             ulm_card_graph_type: fill
             ulm_card_graph_hours: 24
             ulm_card_graph_group_by: interval
     - type: "custom:button-card"
       template: card_thermostat
-      entity: climate.living_room
+      entity: climate.game_room
       variables:
         ulm_card_thermostat_name: Thermostat
         ulm_card_thermostat_enable_collapse: true
         ulm_card_thermostat_enable_controls: true
         ulm_card_thermostat_enable_hvac_modes: true
         ulm_card_thermostat_enable_popup: true
+

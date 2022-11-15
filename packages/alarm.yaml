@@ -4,17 +4,17 @@ binary_sensor:
     unique_id: a79ca463-dfe5-47b0-8928-11a5e2e448a4
     device_class: opening
     entities:
-      - binary_sensor.lumi_lumi_sensor_magnet_aq2_front_door
-      - binary_sensor.lumi_lumi_sensor_magnet_aq2_sliding_door
-      - binary_sensor.lumi_lumi_sensor_magnet_aq2_garage_door
-      - binary_sensor.lumi_lumi_sensor_magnet_aq2_kitchen_left_window
-      - binary_sensor.lumi_lumi_sensor_magnet_aq2_kitchen_right_window
-      - binary_sensor.lumi_lumi_sensor_magnet_aq2_dining_room_left_window
-      - binary_sensor.lumi_lumi_sensor_magnet_aq2_dining_room_right_window
-      - binary_sensor.lumi_lumi_sensor_magnet_aq2_living_room_left_window
-      - binary_sensor.lumi_lumi_sensor_magnet_aq2_dining_room_right_window
-      - binary_sensor.lumi_lumi_sensor_magnet_aq2_guest_bedroom_left_window
-      - binary_sensor.lumi_lumi_sensor_magnet_aq2_guest_bedroom_right_window  
+      - binary_sensor.front_door_contact
+      - binary_sensor.sliding_door_contact
+      - binary_sensor.garage_access_door_contact
+      - binary_sensor.kitchen_left_window_contact
+      - binary_sensor.kitchen_right_window_contact
+      - binary_sensor.dining_room_left_window_contact
+      - binary_sensor.dining_room_right_window_contact
+      - binary_sensor.living_room_left_window_contact
+      - binary_sensor.dining_room_right_window_contact
+      - binary_sensor.guest_bedroom_left_window_contact
+      - binary_sensor.guest_bedroom_right_window_contact  
 
 lock:
   - platform: group
@@ -30,17 +30,17 @@ automation:
     trigger:
       platform: state
       entity_id:
-        - binary_sensor.lumi_lumi_sensor_magnet_aq2_front_door
-        - binary_sensor.lumi_lumi_sensor_magnet_aq2_sliding_door
-        - binary_sensor.lumi_lumi_sensor_magnet_aq2_garage_door
-        - binary_sensor.lumi_lumi_sensor_magnet_aq2_dining_room_left_window
-        - binary_sensor.lumi_lumi_sensor_magnet_aq2_dining_room_right_window
-        - binary_sensor.lumi_lumi_sensor_magnet_aq2_living_room_left_window
-        - binary_sensor.lumi_lumi_sensor_magnet_aq2_living_room_right_window
-        - binary_sensor.lumi_lumi_sensor_magnet_aq2_guest_bedroom_left_window
-        - binary_sensor.lumi_lumi_sensor_magnet_aq2_guest_bedroom_right_window
-        - binary_sensor.lumi_lumi_sensor_magnet_aq2_kitchen_left_window
-        - binary_sensor.lumi_lumi_sensor_magnet_aq2_kitchen_right_window
+        - binary_sensor.front_door_contact
+        - binary_sensor.sliding_door_contact
+        - binary_sensor.garage_access_door_contact
+        - binary_sensor.dining_room_left_window_contact
+        - binary_sensor.dining_room_right_window_contact
+        - binary_sensor.living_room_left_window_contact
+        - binary_sensor.living_room_right_window_contact
+        - binary_sensor.guest_bedroom_left_window_contact
+        - binary_sensor.guest_bedroom_right_window_contact
+        - binary_sensor.kitchen_left_window_contact
+        - binary_sensor.kitchen_right_window_contact
       from: 'off'
       to: 'on'
     action:
@@ -53,7 +53,7 @@ automation:
             data_template:
               title: "Alarm Panel"
               value1: >-
-                {{ trigger.to_state.attributes.friendly_name }} Open
+                {{ trigger.to_state.attributes.friendly_name | replace(" contact","") }} Open
               who: family
               importance_id: high
               color: red
@@ -62,4 +62,4 @@ automation:
             data_template:
               entity_id: media_player.kitchen_display
               message: >-
-                {{ trigger.to_state.attributes.friendly_name }}, Open
+                {{ trigger.to_state.attributes.friendly_name | replace(" contact","") }}, Open
