@@ -1,5 +1,5 @@
 automation:
-  - id: 1c1b004d-7012-47cb-b9f9-3e81776ba688
+  - id: c5aea99d-842d-4d05-973d-99251104e502
     alias: "Back Porch Audio Remote"
     description: "back porch audio remote"
     mode: single
