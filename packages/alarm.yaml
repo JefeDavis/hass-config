@@ -70,7 +70,7 @@ automation:
               importance_id: high
               color: red
         else:
-          - service: tts.google_say
+          - service: tts.piper_say
             data_template:
               entity_id: media_player.kitchen_display
               message: >-
