@@ -13,7 +13,7 @@ input_boolean:
 #-------------------------------------------
 mqtt:
   sensor:
-    - state_topic: "piper_say/lastmsg"
+    - state_topic: "piper/lastmsg"
       name: "Last Message"
       icon: mdi:chart-bubble
 ##############################################################################
@@ -27,12 +27,13 @@ automation:
         entity_id: input_boolean.lastmsg
         to: 'on'
     action:
-      - service: tts.piper_say
-        entity_id:
+      - service: tts.say
+        media_player_entity_id:
           - media_player.master_bed
         data:
           message: "{{ states.sensor.last_message.state }}"
           cache: true
+        entity_id: tts.piper
 
       - service: input_boolean.turn_off
         entity_id:

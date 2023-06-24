@@ -70,8 +70,10 @@ automation:
               importance_id: high
               color: red
         else:
-          - service: tts.piper_say
+          - service: tts.speak
             data_template:
-              entity_id: media_player.kitchen_display
+              media_player_entity_id: media_player.kitchen_display
               message: >-
                 {{ trigger.to_state.attributes.friendly_name | replace(" contact","") }}, Open
+            target:
+              entity_id: tts.piper
