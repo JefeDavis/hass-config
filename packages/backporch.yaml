@@ -4,18 +4,37 @@ automation:
     description: "back porch audio remote"
     mode: single
     trigger:
-      - platform: state
-        entity_id: button.back_porch_audio_pico_on
+      - platform: device
+        device_id: 0a648e823459f3188edc9c9f2d1ca021
+        domain: lutron_caseta
+        type: press
+        subtype: "on"
         id: play
-      - platform: state
-        entity_id: button.back_porch_audio_pico_off
+      - platform: device
+        device_id: 0a648e823459f3188edc9c9f2d1ca021
+        domain: lutron_caseta
+        type: press
+        subtype: "off"
         id: next
-      - platform: state
-        entity_id: button.back_porch_audio_pico_raise
+      - platform: device
+        device_id: 0a648e823459f3188edc9c9f2d1ca021
+        domain: lutron_caseta
+        type: press
+        subtype: "raise"
         id: volume_up
-      - platform: state
-        entity_id: button.back_porch_audio_pico_lower
+      - platform: device
+        device_id: 0a648e823459f3188edc9c9f2d1ca021
+        domain: lutron_caseta
+        type: press
+        subtype: "lower"
         id: volume_down
+      - platform: device
+        device_id: 0a648e823459f3188edc9c9f2d1ca021
+        domain: lutron_caseta
+        type: press
+        subtype: "stop"
+        id: favorite
+
     condition: []
     action:
       - choose:

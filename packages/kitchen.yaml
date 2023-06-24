@@ -4,18 +4,36 @@ automation:
     description: "kitchen audio remote"
     mode: single
     trigger:
-      - platform: state
-        entity_id: button.kitchen_audio_pico_on
+      - platform: device
+        device_id: 5c6ec5598f581de59ba7851118ed8cc2
+        domain: lutron_caseta
+        type: press
+        subtype: "on"
         id: play
-      - platform: state
-        entity_id: button.kitchen_audio_pico_off
+      - platform: device
+        device_id: 5c6ec5598f581de59ba7851118ed8cc2
+        domain: lutron_caseta
+        type: press
+        subtype: "off"
         id: next
-      - platform: state
-        entity_id: button.kitchen_audio_pico_raise
+      - platform: device
+        device_id: 5c6ec5598f581de59ba7851118ed8cc2
+        domain: lutron_caseta
+        type: press
+        subtype: "raise"
         id: volume_up
-      - platform: state
-        entity_id: button.kitchen_audio_pico_lower
+      - platform: device
+        device_id: 5c6ec5598f581de59ba7851118ed8cc2
+        domain: lutron_caseta
+        type: press
+        subtype: "lower"
         id: volume_down
+      - platform: device
+        device_id: 5c6ec5598f581de59ba7851118ed8cc2
+        domain: lutron_caseta
+        type: press
+        subtype: "stop"
+        id: favorite
     condition: []
     action:
       - choose:
