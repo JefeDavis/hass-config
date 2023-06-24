@@ -28,8 +28,9 @@ automation:
         to: 'on'
     action:
       - service: tts.say
-        media_player_entity_id: media_player.game_room
         data:
+          media_player_entity_id:
+            - media_player.game_room
           message: "{{ states.sensor.last_message.state }}"
           cache: true
         entity_id: tts.piper
