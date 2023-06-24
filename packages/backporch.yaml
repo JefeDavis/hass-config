@@ -1,20 +1,20 @@
 automation:
   - id: 1c1b004d-7012-47cb-b9f9-3e81776ba688
-    alias: "Kitchen Audio Remote"
-    description: "kitchen audio remote"
+    alias: "Back Porch Audio Remote"
+    description: "back porch audio remote"
     mode: single
     trigger:
       - platform: state
-        entity_id: button.kitchen_audio_pico_on
+        entity_id: button.back_porch_audio_pico_on
         id: play
       - platform: state
-        entity_id: button.kitchen_audio_pico_off
+        entity_id: button.back_porch_audio_pico_off
         id: next
       - platform: state
-        entity_id: button.kitchen_audio_pico_raise
+        entity_id: button.back_porch_audio_pico_raise
         id: volume_up
       - platform: state
-        entity_id: button.kitchen_audio_pico_lower
+        entity_id: button.back_porch_audio_pico_lower
         id: volume_down
     condition: []
     action:
@@ -26,7 +26,7 @@ automation:
               - service: media_player.media_play_pause
                 data: {}
                 target:
-                  entity_id: media_player.kitchen
+                  entity_id: media_player.backyard
           - conditions:
               - condition: trigger
                 id: next
@@ -34,7 +34,7 @@ automation:
               - service: media_player.media_next_track
                 data: {}
                 target:
-                  entity_id: media_player.kitchen
+                  entity_id: media_player.backyard
           - conditions:
               - condition: trigger
                 id: volume_up
@@ -42,7 +42,7 @@ automation:
               - service: media_player.volume_up
                 data: {}
                 target:
-                  entity_id: media_player.kitchen
+                  entity_id: media_player.backyard
           - conditions:
               - condition: trigger
                 id: volume_down
@@ -50,4 +50,4 @@ automation:
               - service: media_player.volume_down
                 data: {}
                 target:
-                  entity_id: media_player.kitchen
+                  entity_id: media_player.backyard

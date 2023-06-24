@@ -28,8 +28,7 @@ automation:
         to: 'on'
     action:
       - service: tts.say
-        media_player_entity_id:
-          - media_player.master_bed
+        media_player_entity_id: media_player.game_room
         data:
           message: "{{ states.sensor.last_message.state }}"
           cache: true
