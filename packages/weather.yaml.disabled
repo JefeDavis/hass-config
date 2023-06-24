@@ -1,15 +1,15 @@
 weather:
   - platform: pirateweather
-    api_key: !secret pirate_weather_apikey
+    api_key: !env_var HASS_PIRATE_WEATHER_APIKEY
     # Additional optional values:
-    latitude: !secret latitude
-    longitude: !secret longitude
+    latitude: !env_var HASS_LATITUDE
+    longitude: !env_var HASS_LONGITUDE
     mode: hourly
 
 # you can also get a sensor data
 sensor:
   - platform: pirateweather
-    api_key: !secret pirate_weather_apikey
+    api_key: !env_var HASS_PIRATE_WEATHER_APIKEY
     scan_interval: '00:15:00'
     monitored_conditions:
       - temperature
