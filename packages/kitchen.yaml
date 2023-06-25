@@ -44,7 +44,7 @@ automation:
               - service: media_player.media_play_pause
                 data: {}
                 target:
-                  entity_id: media_player.kitchen
+                  entity_id: media_player.kitchen_speakers
           - conditions:
               - condition: trigger
                 id: next
@@ -52,7 +52,7 @@ automation:
               - service: media_player.media_next_track
                 data: {}
                 target:
-                  entity_id: media_player.kitchen
+                  entity_id: media_player.kitchen_speakers
           - conditions:
               - condition: trigger
                 id: volume_up
@@ -60,7 +60,7 @@ automation:
               - service: media_player.volume_up
                 data: {}
                 target:
-                  entity_id: media_player.kitchen
+                  entity_id: media_player.kitchen_speakers
           - conditions:
               - condition: trigger
                 id: volume_down
@@ -68,4 +68,4 @@ automation:
               - service: media_player.volume_down
                 data: {}
                 target:
-                  entity_id: media_player.kitchen
+                  entity_id: media_player.kitchen_speakers

@@ -10,7 +10,7 @@ automation:
         at: '22:00:00'
     action:
       - wait_template: >-
-          {{ not is_state('media_player.living_room_tv', 'playing') }}
+          {{ not is_state('media_player.living_room_shield', 'playing') }}
       - service: script.speech_engine
         data:
           call_no_announcement: 1

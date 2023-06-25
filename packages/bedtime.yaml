@@ -65,14 +65,14 @@ automation:
         type: lock
       - service: media_player.volume_set
         data:
-          entity_id: media_player.master_bedroom_speaker
+          entity_id: media_player.master_bedroom_assistant
           volume_level: '0.10'
       - service: media_player.play_media
         data:
           media_content_id: https://www.gstatic.com/voice_delight/sounds/long/ocean.mp3
           media_content_type: audio/mp3
         target:
-          entity_id: media_player.master_bedroom_speaker
+          entity_id: media_player.master_bedroom_assistant
 
 
   - alias: Stop Sleep Noises After 1 Hour
@@ -82,7 +82,7 @@ automation:
       - platform: device
         device_id: 9239423e32c943787786e673ff2d3dfb
         domain: media_player
-        entity_id: media_player.master_bedroom_speaker
+        entity_id: media_player.master_bedroom_assistant
         type: playing
         for:
           hours: 1
@@ -115,4 +115,4 @@ automation:
       - service: media_player.media_stop
         data: {}
         target:
-          entity_id: media_player.master_bedroom_speaker
+          entity_id: media_player.master_bedroom_assistant
