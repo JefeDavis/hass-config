@@ -29,7 +29,7 @@ automation:
     id: 92577133-ba06-4e91-bb86-0814217ca018
     trigger:
       - platform: state
-        entity_id: binary_sensor.game_room_sofa_presence_sensor
+        entity_id: binary_sensor.game_room_presence_sensor_sofa_zone
         from: 'off'
         to: 'on'
     action:
@@ -42,7 +42,7 @@ automation:
     id: a3c34a6c-542d-4407-b924-6ccb518a78fa
     trigger:
       - platform: state
-        entity_id: binary_sensor.game_room_sofa_presence_sensor
+        entity_id: binary_sensor.game_room_presence_sensor_sofa_zone
         from: 'on'
         to: 'off'
     action:
