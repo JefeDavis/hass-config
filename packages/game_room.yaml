@@ -1,0 +1,53 @@
+automation:
+  - alias: "Game Room is Occupied"
+    id: 344a319e-5bf4-4751-9003-fc85948acb45
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.game_room_presence_sensor
+        from: 'off'
+        to: 'on'
+    action:
+      - service: homeassistant.turn_on
+        target:
+          entity_id:
+            - light.game_room_main_lights
+
+  - alias: "Game Room is not Occupied"
+    id: 92f0e736-2143-4bde-8778-3a8f370a14e1
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.game_room_presence_sensor
+        from: 'on'
+        to: 'off'
+    action:
+      - service: homeassistant.turn_off
+        target:
+          entity_id:
+            - light.game_room_main_lights
+
+  - alias: "Game Room Sofa is Occupied"
+    id: 92577133-ba06-4e91-bb86-0814217ca018
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.game_room_sofa_presence_sensor
+        from: 'off'
+        to: 'on'
+    action:
+      - service: homeassistant.turn_off
+        target:
+          entity_id:
+            - light.game_room_main_lights
+
+  - alias: "Game Room Sofa is not Occupied"
+    id: a3c34a6c-542d-4407-b924-6ccb518a78fa
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.game_room_sofa_presence_sensor
+        from: 'on'
+        to: 'off'
+    action:
+      - service: homeassistant.turn_on
+        target:
+          entity_id:
+            - light.game_room_main_lights
+

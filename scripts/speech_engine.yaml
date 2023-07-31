@@ -12,15 +12,16 @@ speech_engine:
     - service: script.speech_processing
       data:
         media_player: >-
-           {% if media_player | length == 0 %}
-             {% set media_player = [
-               'media_player.kitchen_speakers'
-             ] %}
-           {% endif %}
-           {% if media_player is not string and media_player is sequence %}
-             {% set media_player = media_player|join(', ') %}
-           {% endif %}
-           {{ media_player }}
+          {% if media_player | length == 0 %}
+            {% set media_player = [ 'media_player.kitchen_speakers' ] %}
+            {% if is_state('binary_sensor.game_room_presence_sensor', 'on') %}
+              {% set media_player = media_player + [ 'media_player.game_room_speakers' ] %}
+            {% endif %}
+          {% endif %}
+          {% if media_player is not string and media_player is sequence %}
+            {% set media_player = media_player|join(', ') %}
+          {% endif %}
+          {{ media_player }}
         speech_message: !include ../templates/speech/briefing.yaml
 
 speech_processing:
