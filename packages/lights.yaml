@@ -21,11 +21,11 @@ light:
     name: Guest Bedroom Main Lights
     entity_id: switch.guest_bedroom_main_lights
   - platform: switch
-    name: Jeff's Office Main Lights
-    entity_id: switch.jeff_s_office_main_lights
+    name: Office Main Lights
+    entity_id: switch.office_main_lights
   - platform: switch
-    name: Sara's Office Main Lights
-    entity_id: switch.sara_s_office_main_lights
+    name: Nursery Main Lights
+    entity_id: switch.nursery_main_lights
   - platform: switch
     name: Upstairs Hallway Main Lights
     entity_id: switch.upstairs_hallway_main_lights
@@ -41,9 +41,9 @@ light:
     unique_id: 5ac09b55-febe-4c9f-93b3-8d7205270b97
     entities:
       - light.game_room_main_lights
-      - light.jeff_s_office_main_lights
       - light.master_bedroom_main_lights
-      - light.sara_s_office_main_lights
+      - light.nursery_main_lights
+      - light.office_main_lights
       - light.upstairs_hallway_main_lights
   - platform: group
     name: Downstairs Lights
@@ -83,7 +83,7 @@ light:
       - light.kitchen_main_lights
       - light.kitchen_under_cabinet
   - platform: group
-    name: Jeff's Office Lamp
+    name: Office Lamp
     entities:
-      - light.jeff_s_office_lamp_top
-      - light.jeff_s_office_lamp_bottom
+      - light.office_lamp_top
+      - light.office_lamp_bottom

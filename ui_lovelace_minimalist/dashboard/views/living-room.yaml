@@ -71,8 +71,8 @@
                 name: Kitchen
               - entity_id: media_player.backyard
                 name: Backyard
-              - entity_id: media_player.jeff_s_office
-                name: Jeff's Office
+              - entity_id: media_player.office
+                name: Office
               - entity_id: media_player.master_bathroom
                 name: Master Bathroom
               - entity_id: media_player.game_room

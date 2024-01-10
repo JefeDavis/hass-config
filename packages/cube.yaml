@@ -1,6 +1,6 @@
 automation:
   # - id: '1669614969925'
-  #   alias: Jeff's Office Cube
+  #   alias: Office Cube
   #   description: ''
   #   use_blueprint:
   #     path: SirGoodenough/Zigbee2MQTT - Xiaomi Cube Controller.yaml
@@ -10,22 +10,22 @@ automation:
   #         - service: media_player.media_play_pause
   #           data: {}
   #           target:
-  #             entity_id: media_player.mass_jeff_s_office
+  #             entity_id: media_player.mass_office
   #       rotate_cw_face_0:
   #         - service: script.cube_volume_control
   #           data:
   #             angle: "{{ trigger.to_state.attributes.action_angle }}"
-  #             media_player: media_player.mass_jeff_s_office
+  #             media_player: media_player.mass_office
   #       rotate_ccw_face_0:
   #         - service: script.cube_volume_control
   #           data:
   #             angle: "{{ trigger.to_state.attributes.action_angle }}"
-  #             media_player: media_player.mass_jeff_s_office
+  #             media_player: media_player.mass_office
   #       slide_face_0:
   #         - service: media_player.media_next_track
   #           data: {}
   #           target:
-  #             entity_id: media_player.mass_jeff_s_office
+  #             entity_id: media_player.mass_office
   #       doubletap_face_1:
   #         - service: media_player.media_play_pause
   #           data: {}
@@ -50,66 +50,66 @@ automation:
   #         - service: light.toggle
   #           data: {}
   #           target:
-  #             entity_id: light.jeff_s_office_lamp
+  #             entity_id: light.office_lamp
   #       rotate_cw_face_3:
   #         - service: script.cube_dimmer_control
   #           data:
   #             angle: "{{ trigger.to_state.attributes.action_angle }}"
-  #             light: light.jeff_s_office_lamp
+  #             light: light.office_lamp
   #       rotate_ccw_face_3:
   #         - service: script.cube_dimmer_control
   #           data:
   #             angle: "{{ trigger.to_state.attributes.action_angle }}"
-  #             light: light.jeff_s_office_lamp
+  #             light: light.office_lamp
   #       rotate_cw_face_2:
   #         - service: script.cube_red_color_control
   #           data:
   #             angle: "{{ trigger.to_state.attributes.action_angle }}"
-  #             light: light.jeff_s_office_lamp
+  #             light: light.office_lamp
   #       rotate_ccw_face_2:
   #         - service: script.cube_red_color_control
   #           data:
   #             angle: "{{ trigger.to_state.attributes.action_angle }}"
-  #             light: light.jeff_s_office_lamp
+  #             light: light.office_lamp
   #       rotate_cw_face_4:
   #         - service: script.cube_green_color_control
   #           data:
   #             angle: "{{ trigger.to_state.attributes.action_angle }}"
-  #             light: light.jeff_s_office_lamp
+  #             light: light.office_lamp
   #       rotate_ccw_face_4:
   #         - service: script.cube_green_color_control
   #           data:
   #             angle: "{{ trigger.to_state.attributes.action_angle }}"
-  #             light: light.jeff_s_office_lamp
+  #             light: light.office_lamp
   #       rotate_cw_face_5:
   #         - service: script.cube_blue_color_control
   #           data:
   #             angle: "{{ trigger.to_state.attributes.action_angle }}"
-  #             light: light.jeff_s_office_lamp
+  #             light: light.office_lamp
   #       rotate_ccw_face_5:
   #         - service: script.cube_blue_color_control
   #           data:
   #             angle: "{{ trigger.to_state.attributes.action_angle }}"
-  #             light: light.jeff_s_office_lamp
+  #             light: light.office_lamp
 
 
   - id: 2e521ce8-5559-4cd3-b671-be69715ed345
-    alias: Jeff's Office Cube
+    alias: Office Cube
     trigger:
        # tap
       - platform: state
-        entity_id: sensor.jeff_s_office_cube_action
+        entity_id: sensor.office_cube_action
         to: tap
         id: tap
       
       # angle
       - platform: state
-        entity_id: sensor.jeff_s_office_cube_action_angle
+        entity_id: sensor.office_cube_action_angle
         id: angle
       
       # push
       - platform: state
-        entity_id: sensor.jeff_s_office_cube_action
+        entity_id: sensor.office_cube_action
         to: slide
         id: slide
     action:
@@ -122,33 +122,33 @@ automation:
         # tap on side 0 plays/pauses speaker
         - conditions:
           - condition: state
-            entity_id: sensor.jeff_s_office_cube_side
+            entity_id: sensor.office_cube_side
             state: '0'
           - condition: trigger
             id: tap
           sequence:
           - service: media_player.media_play_pause
             target:
-              entity_id: media_player.mass_jeff_s_office
+              entity_id: media_player.mass_office
             data: {}
 
         # slide on side 0 to advance to the next track
         - conditions:
           - condition: state
-            entity_id: sensor.jeff_s_office_cube_side
+            entity_id: sensor.office_cube_side
             state: '0'
           - condition: trigger
             id: slide
           sequence:
           - service: media_player.media_next_track
             target:
-              entity_id: media_player.mass_jeff_s_office
+              entity_id: media_player.mass_office
             data: {}
         
         # slide on rotate cw/ccw 0 to advance to adjust volume
         - conditions:
           - condition: state
-            entity_id: sensor.jeff_s_office_cube_side
+            entity_id: sensor.office_cube_side
             state: '0'
           - condition: trigger
             id: angle
@@ -156,7 +156,7 @@ automation:
           - service: script.cube_volume_control
             data:
               angle: "{{ trigger.to_state.state }}"
-              media_player: media_player.mass_jeff_s_office
+              media_player: media_player.mass_office
       
         #############
         # Lamp #
@@ -165,20 +165,20 @@ automation:
         # tap on side 3 turns office lamp on/off
         - conditions:
           - condition: state
-            entity_id: sensor.jeff_s_office_cube_side
+            entity_id: sensor.office_cube_side
             state: '3'
           - condition: trigger
             id: tap
           sequence:
           - service: light.toggle
             target:
-              entity_id: light.jeff_s_office_lamp
+              entity_id: light.office_lamp
             data: {}
         
         # slide on rotate cw/ccw 0 to advance to adjust volume
         - conditions:
           - condition: state
-            entity_id: sensor.jeff_s_office_cube_side
+            entity_id: sensor.office_cube_side
             state: '3'
           - condition: trigger
             id: angle
@@ -186,7 +186,7 @@ automation:
           - service: script.cube_dimmer_control
             data:
               angle: "{{ trigger.to_state.state }}"
-              light: light.jeff_s_office_lamp
+              light: light.office_lamp
         
       
 script:
