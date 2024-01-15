@@ -1,35 +1,4 @@
 light:
-  - platform: switch
-    name: Kitchen Under Cabinet
-    entity_id: switch.kitchen_under_cabinet
-  - platform: switch
-    name: Backyard Floodlights
-    entity_id: switch.backyard_floodlights
-  - platform: switch
-    name: Exterior Landscape Lights
-    entity_id: switch.exterior_landscape_lights
-  - platform: switch
-    name: Front Foyer Chandelier
-    entity_id: switch.front_foyer_chandelier
-  - platform: switch
-    name: Front Porch Door Lights
-    entity_id: switch.front_porch_door_lights
-  - platform: switch
-    name: Garage Main Lights
-    entity_id: switch.garage_main_lights
-  - platform: switch
-    name: Guest Bedroom Main Lights
-    entity_id: switch.guest_bedroom_main_lights
-  - platform: switch
-    name: Office Main Lights
-    entity_id: switch.office_main_lights
-  - platform: switch
-    name: Nursery Main Lights
-    entity_id: switch.nursery_main_lights
-  - platform: switch
-    name: Upstairs Hallway Main Lights
-    entity_id: switch.upstairs_hallway_main_lights
-
   - platform: group
     name: Interior Lights
     unique_id: 2cd18f95-f3dd-4243-ae0a-598afc437a5c
