@@ -9,3 +9,25 @@ google_assistant:
     - light
     - fan
     - vacuum
+  entity_config:
+    media_player.backyard_speakers:
+      name: Backyard Speakers
+      room: Backyard
+    media_player.game_room_speakers:
+      name: Game Room Speakers
+      room: Game Room
+    media_player.kitchen_speakers:
+      name: Kitchen Speakers
+      room: Kitchen
+    media_player.living_room_speakers:
+      name: Living Room Speakers
+      room: Living Room
+    media_player.master_bathroom_speakers:
+      name: Master Bathroom Speakers
+      room: Master Bathroom
+    media_player.nursery_speakers:
+      name: Nursery Speakers
+      room: Nursery
+    media_player.office_speakers:
+      name: Office Speakers
+      room: Office
