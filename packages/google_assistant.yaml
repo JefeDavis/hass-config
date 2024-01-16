@@ -1,0 +1,11 @@
+google_assistant:
+  project_id: !env_var HASS_GOOGLE_ASSISTANT_PROJECT_ID
+  service_account:
+    private_key: !env_var HASS_GOOGLE_ASSISTANT_SERVICE_ACCOUNT_PRIVATE_KEY
+    client_email: !env_var HASS_GOOGLE_ASSISTANT_SERVICE_ACCOUNT_CLIENT_EMAIL
+  report_state: true
+  exposed_domains:
+    - switch
+    - light
+    - fan
+    - vacuum
