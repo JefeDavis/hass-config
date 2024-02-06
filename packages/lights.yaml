@@ -56,3 +56,13 @@ light:
     entities:
       - light.office_lamp_top
       - light.office_lamp_bottom
+automation:
+  - id: 8492848d-48ef84-8593ae-ace748-83848295ea730
+    alias: "Master Bedroom Closet Motion Light"
+    description: ""
+    use_blueprint:
+      path: homeassistant/motion_light.yaml
+      input:
+        motion_entity: binary_sensor.master_bedroom_closet_motion_sensor_occupancy
+          light_target:
+            entity_id: light.master_bedroom_closet_light
