@@ -64,5 +64,5 @@ automation:
       path: homeassistant/motion_light.yaml
       input:
         motion_entity: binary_sensor.master_bedroom_closet_motion_sensor_occupancy
-          light_target:
-            entity_id: light.master_bedroom_closet_light
+        light_target:
+          entity_id: light.master_bedroom_closet_light
