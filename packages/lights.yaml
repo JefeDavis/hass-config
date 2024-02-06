@@ -66,3 +66,4 @@ automation:
         motion_entity: binary_sensor.master_bedroom_closet_motion_sensor_occupancy
         light_target:
           entity_id: light.master_bedroom_closet_light
+        no_motion_wait: 30
