@@ -1,0 +1,37 @@
+generic_hygrostat:
+  - name: Guest Bathroom Hygrostat
+    unique_id: 5048CD2B-C2AB-40F3-B171-8A75D8EAD768
+    humidifier: fan.guest_bathroom_fan
+    target_sensor: sensor.guest_bathroom_humidity_sensor_humidity
+    min_humidity: 45
+    max_humidity: 75
+    target_humidity: 55
+    device_class: "dehumidifier"
+    min_cycle_duration:
+      minutes: 5
+    initial_state: true
+    sensor_stale_duration: 00:15:00
+  - name: Master Bathroom Hygrostat
+    unique_id: F72203CD-28FA-4229-AC7C-A5A04461165E
+    humidifier: fan.master_bathroom_fan
+    target_sensor: sensor.master_bathroom_humidity_sensor_humidity
+    min_humidity: 45
+    max_humidity: 75
+    target_humidity: 55
+    device_class: "dehumidifier"
+    min_cycle_duration:
+      minutes: 5
+    initial_state: true
+    sensor_stale_duration: 00:15:00
+  - name: Upstairs Bathroom Hygrostat
+    unique_id: 17BDB3E9-24B3-4917-9183-245885FCC874
+    humidifier: fan.upstairs_bathroom_fan
+    target_sensor: sensor.upstairs_bathroom_humidity_sensor_humidity
+    min_humidity: 45
+    max_humidity: 75
+    target_humidity: 55
+    device_class: "dehumidifier"
+    min_cycle_duration:
+      minutes: 5
+    initial_state: true
+    sensor_stale_duration: 00:15:00
