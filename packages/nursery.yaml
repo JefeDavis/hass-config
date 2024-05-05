@@ -1,0 +1,147 @@
+automation:
+  - alias: Changing Table Buttons
+    id: FB0ECA00-2567-42F3-9BF0-01FD679A71EB
+    description: automations for changing table four button device
+    mode: single
+    trigger:
+      - device_id: f25f7612cb96f9ad24dc92603aba3aa5
+        discovery_id: 0xf4b3b1fffee7bde1 action_1_single
+        domain: mqtt
+        platform: device
+        subtype: 1_single
+        type: action
+        id: 1_single
+      - device_id: f25f7612cb96f9ad24dc92603aba3aa5
+        discovery_id: 0xf4b3b1fffee7bde1 action_1_double
+        domain: mqtt
+        platform: device
+        subtype: 1_double
+        type: action
+        id: 1_double
+      - device_id: f25f7612cb96f9ad24dc92603aba3aa5
+        discovery_id: 0xf4b3b1fffee7bde1 action_1_hold
+        domain: mqtt
+        platform: device
+        subtype: 1_hold
+        type: action
+        id: 1_hold
+
+      - device_id: f25f7612cb96f9ad24dc92603aba3aa5
+        discovery_id: 0xf4b3b1fffee7bde1 action_2_single
+        domain: mqtt
+        platform: device
+        subtype: 2_single
+        type: action
+        id: 2_single
+      - device_id: f25f7612cb96f9ad24dc92603aba3aa5
+        discovery_id: 0xf4b3b1fffee7bde1 action_2_double
+        domain: mqtt
+        platform: device
+        subtype: 2_double
+        type: action
+        id: 2_double
+      - device_id: f25f7612cb96f9ad24dc92603aba3aa5
+        discovery_id: 0xf4b3b1fffee7bde1 action_2_hold
+        domain: mqtt
+        platform: device
+        subtype: 2_hold
+        type: action
+        id: 2_hold
+
+      - device_id: f25f7612cb96f9ad24dc92603aba3aa5
+        discovery_id: 0xf4b3b1fffee7bde1 action_3_single
+        domain: mqtt
+        platform: device
+        subtype: 3_single
+        type: action
+        id: 3_single
+      - device_id: f25f7612cb96f9ad24dc92603aba3aa5
+        discovery_id: 0xf4b3b1fffee7bde1 action_3_double
+        domain: mqtt
+        platform: device
+        subtype: 3_double
+        type: action
+        id: 3_double
+      - device_id: f25f7612cb96f9ad24dc92603aba3aa5
+        discovery_id: 0xf4b3b1fffee7bde1 action_3_hold
+        domain: mqtt
+        platform: device
+        subtype: 3_hold
+        type: action
+        id: 3_hold
+
+      - device_id: f25f7612cb96f9ad24dc92603aba3aa5
+        discovery_id: 0xf4b3b1fffee7bde1 action_4_single
+        domain: mqtt
+        platform: device
+        subtype: 4_single
+        type: action
+        id: 4_single
+      - device_id: f25f7612cb96f9ad24dc92603aba3aa5
+        discovery_id: 0xf4b3b1fffee7bde1 action_4_double
+        domain: mqtt
+        platform: device
+        subtype: 4_double
+        type: action
+        id: 4_double
+      - device_id: f25f7612cb96f9ad24dc92603aba3aa5
+        discovery_id: 0xf4b3b1fffee7bde1 action_4_hold
+        domain: mqtt
+        platform: device
+        subtype: 4_hold
+        type: action
+        id: 4_hold
+
+    action:
+      - choose:
+        - conditions:
+            - condition: trigger
+              id: 1_single
+          sequence:
+            - service: babybuddy.add_diaper_change
+              data:
+                type: Wet
+                notes: Recorded via changing table
+              target:
+                entity_id: sensor.baby_annabeth_davis
+        - conditions:
+          - condition: trigger
+            id: 1_double
+          sequence:
+            - service: babybuddy.add_diaper_change
+              data:
+                type: Solid
+                color: Brown
+                notes: Recorded via changing table
+              target:
+                entity_id: sensor.baby_annabeth_davis
+        - conditions:
+          - condition: trigger
+            id: 1_hold
+          sequence:
+            - service: babybuddy.add_diaper_change
+              data:
+                type: Wet and Solid
+                color: Brown
+                notes: Recorded via changing table
+              target:
+                entity_id: sensor.baby_annabeth_davis
+        - conditions:
+          - condition: trigger
+            id: 2_single
+          sequence:
+            - service: babybuddy.start_timer
+              data:
+                name: Changing Table Timer
+              target:
+                entity_id: switch.annabeth_davis_timer
+        - conditions:
+          - condition: trigger
+            id: 4_single
+          sequence:
+            - service: babybuddy.add_sleep
+              data:
+                timer: true
+                notes: Recorded via changing table
+              target:
+                entity_id: switch.annabeth_davis_timer
