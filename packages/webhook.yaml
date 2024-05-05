@@ -1,0 +1,16 @@
+automation:
+  - id: 22db91a3-6c8f-4d53-a8a4-f3e0413f3ddf
+    alias: Update Configuration on Github Push Event
+
+    trigger:
+    - platform: webhook
+      webhook_id: !env_var HASS_DEPLOY_CONFIG_WEBHOOK_ID
+      local_only: false
+
+    action:
+    - service: shell_command.deploy_config
+    - service: homeassistant.reload_all
+
+shell_command:
+  deploy_config: cd /config && git pull || git reset origin/main && git reset origin/main --hard
+
