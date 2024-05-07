@@ -10,7 +10,7 @@ generic_hygrostat:
     min_cycle_duration:
       minutes: 5
     initial_state: true
-    sensor_stale_duration: 00:15:00
+    sensor_stale_duration: 01:00:00
   - name: Master Bathroom Hygrostat
     unique_id: F72203CD-28FA-4229-AC7C-A5A04461165E
     humidifier: fan.master_bathroom_fan
@@ -22,7 +22,7 @@ generic_hygrostat:
     min_cycle_duration:
       minutes: 5
     initial_state: true
-    sensor_stale_duration: 00:15:00
+    sensor_stale_duration: 01:00:00
   - name: Upstairs Bathroom Hygrostat
     unique_id: 17BDB3E9-24B3-4917-9183-245885FCC874
     humidifier: fan.upstairs_bathroom_fan
@@ -34,4 +34,4 @@ generic_hygrostat:
     min_cycle_duration:
       minutes: 5
     initial_state: true
-    sensor_stale_duration: 00:15:00
+    sensor_stale_duration: 01:00:00
