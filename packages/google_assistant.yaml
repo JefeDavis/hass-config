@@ -5,7 +5,11 @@ google_assistant:
     client_email: !env_var HASS_GOOGLE_ASSISTANT_SERVICE_ACCOUNT_CLIENT_EMAIL
   report_state: true
   exposed_domains:
-    - switch
     - light
     - fan
     - vacuum
+  entity_config:
+    button.find_game_room_remote:
+      room: Game Room
+    button.find_living_room_remote:
+      room: Living Room

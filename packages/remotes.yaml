@@ -1,0 +1,50 @@
+script:
+  remote_finder:
+    alias: Shield Remote Finder
+    description: locate game room shield remote
+    icon: mdi:target
+    mode: single
+    fields:
+      remote_entity_id:
+        selector:
+          entity:
+            multiple: true
+        name: Remote
+        default:
+          - media_player.game_room_shield_adb
+    sequence:
+      - data:
+          command: am start -a android.intent.action.VIEW -d -n com.nvidia.remotelocator/.ShieldRemoteLocatorActivity
+          entity_id: "{{ remote_entity_id }}"
+        service: androidtv.adb_command
+
+input_button:
+  find_game_room_remote:
+    name: Find Game Room Remote
+    icon: mdi:remote
+  
+  find_living_room_remote:
+    name: Find Living Room Remote
+    icon: mdi:remote
+  
+automation:
+  - alias: "Find Game Room Remote"
+    id: 2f4e8bfc-56aa-48d9-812b-272983be3e83
+    mode: single
+    trigger:
+      - platform: state
+        entity_id: input_button.find_game_room_remote
+    action:
+      - service: script.remote_finder
+        data:
+          remote_entity_id: media_player.game_room_shield_adb
+  - alias: "Find Living Room Remote"
+    id: 605a1ab3-158c-4470-a17d-babff4921f41
+    mode: single
+    trigger:
+      - platform: state
+        entity_id: input_button.find_living_room_remote
+    action:
+      - service: script.remote_finder
+        data:
+          remote_entity_id: media_player.living_room_shield_adb
