@@ -14,7 +14,7 @@ automation:
           call_entry_point_check: 1
       - service: homeassistant.turn_on
         entity_id:
-          - light.exterior_landscape_lights
+          - light.landscape_lighting
           - light.front_porch_door_lights
           - switch.living_room_outlet
       - wait_template: >-
@@ -22,5 +22,3 @@ automation:
       - service: light.turn_on
         entity_id:
           - light.living_room_main_lights
-        data:
-          brightness: 25
