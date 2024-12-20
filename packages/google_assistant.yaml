@@ -4,12 +4,144 @@ google_assistant:
     private_key: !env_var HASS_GOOGLE_ASSISTANT_SERVICE_ACCOUNT_PRIVATE_KEY
     client_email: !env_var HASS_GOOGLE_ASSISTANT_SERVICE_ACCOUNT_CLIENT_EMAIL
   report_state: true
-  exposed_domains:
-    - light
-    - fan
-    - vacuum
+  expose_by_default: false
+  # exposed_domains:
+  #   - light
+  #   - fan
+  #   - vacuum
   entity_config:
+    # Back Porch
+    light.back_porch_main_light_switch:
+      name: Back Porch Main Lights
+      room: Back Porch
+    fan.back_porch_ceiling_fan:
+      room: Back Porch
+
+    # Backyard
+    light.backyard_floodlights:
+      room: Backyard
+
+    # Dining Room
+    light.dining_room_chandelier:
+      room: Dining Room
+    vacuum.downstairs_vacuum:
+      room: Dining Room
+
+    # Foyer
+    light.foyer_chandelier:
+      room: Foyer
+    lock.front_door:
+      room: Foyer
+
+    # Front Porch
+    light.front_door_lights:
+      room: Front Porch
+    light.front_porch_main_lights:
+      room: Front Porch
+
+    # Game Room
+    light.game_room_main_lights:
+      room: Game Room
+    fan.game_room_ceiling_fan:
+      room: Game Room
+    climate.game_room_thermostat:
+      room: Game Room
+    vacuum.upstairs_vacuum:
+      room: Game Room
     button.find_game_room_remote:
       room: Game Room
+
+    # Garage
+    light.garage_main_lights:
+      room: Garage
+    cover.garage_door:
+      room: Garage
+
+    # Guest Bathroom
+    light.guest_bathroom_main_lights:
+      room: Guest Bathroom
+    fan.guest_bathroom_fan:
+      room: Guest Bathroom
+
+    # Guest Bedroom
+    light.guest_bedroom_main_lights:
+      room: Guest Bedroom
+    fan.guest_bedroom_ceiling_fan:
+      room: Guest Bedroom
+
+    # Kitchen
+    light.kitchen_main_lights:
+      room: Kitchen
+    light.kitchen_island_lights:
+      room: Kitchen
+    light.kitchen_under_cabinet_lights:
+      room: Kitchen
+
+    # Exterior
+    light.landscape_lights:
+      room: Exterior
+
+    # Laundry Room
+    light.laundry_room_main_lights:
+      room: Laundry Room
+
+    # Living Room
+    light.living_room_main_lights:
+      room: Living Room
+    fan.living_room_ceiling_fan:
+      room: Living Room
+    switch.living_room_left_outlet:
+      room: Living Room
+    switch.living_room_right_outlet:
+      room: Living Room
+    climate.living_room_thermostat:
+      room: Living Room
     button.find_living_room_remote:
       room: Living Room
+
+    # Master Bathroom
+    light.master_bathroom_main_lights:
+      room: Master Bathroom
+    light.master_bathroom_shower_light:
+      room: Master Bathroom
+    light.master_bathroom_water_closet_light:
+      room: Master Bathroom
+    fan.master_bathroom_fan:
+      room: Master Bathroom
+    fan.master_bathroom_water_closet_fan:
+      room: Master Bathroom
+
+    # Master Bedroom
+    light.master_bedroom_main_lights:
+      room: Master Bedroom
+    light.master_bedroom_closet_light:
+      room: Master Bedroom
+    fan.master_bedroom_ceiling_fan:
+      room: Master Bedroom
+      
+    # Nursery
+    light.nursery_main_lights:
+      room: Nursery
+    fan.nursery_ceiling_fan:
+      room: Nursery
+
+    # Office
+    light.office_main_lights:
+      room: Office
+    light.office_lamp:
+      room: Office
+    fan.office_ceiling_fan:
+      room: Office
+
+    # Upstairs Bathroom
+    light.upstairs_bathroom_main_lights:
+      room: Upstairs Bathroom
+    fan.upstairs_bathroom_fan:
+      room: Upstairs Bathroom
+
+    # Upstairs Hallway
+    light.upstairs_hallway_main_lights:
+      room: Upstairs Hallway
+    climate.upstairs_hallway_thermostat:
+      room: Upstairs Hallway
+
