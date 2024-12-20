@@ -134,7 +134,8 @@ google_assistant:
       room: Office
 
     # Upstairs Bathroom
-    light.upstairs_bathroom_main_lights:
+    light.upstairs_bathroom_main_light_switch:
+      name: Upstairs Bathroom Main Lights
       room: Upstairs Bathroom
     fan.upstairs_bathroom_fan:
       room: Upstairs Bathroom
